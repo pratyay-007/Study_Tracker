@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#0a0c12",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<title>Study Planner Dashboard</title>
+<style>
+        body {
+            min-height: 100dvh;
+            background: radial-gradient(circle at top right, #1e293b, #0a0c12);
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-background-dark font-display text-slate-100 min-h-screen flex flex-col selection:bg-primary/30">
+<!-- Animated background blobs for "live" feel -->
+<div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+<div class="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-primary/10 rounded-full blur-[120px] animate-pulse"></div>
+<div class="absolute top-[40%] -right-[5%] w-[30%] h-[30%] bg-blue-500/5 rounded-full blur-[100px]"></div>
+</div>
+<!-- Top Header -->
+<header class="flex items-center justify-between p-4 pt-6 sticky top-0 z-10">
+<div class="flex items-center gap-3">
+<a class="relative size-10 rounded-full bg-primary/20 border border-primary/30 hover:scale-105 transition-transform active:scale-95 group" href="/profile">
+<img alt="User Profile" class="w-full h-full object-cover rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwn5lpPZo8ejWh3R5Is-cmoY-kc_HCRRupSamG8cmDYX6rn10cihdgPdTqaPDQ0SxVl5TltKAwRvLKW4XJ8dnZ9s0JbVP58M2S8wqhoVU6wJ_hrtYF40tHssSkf2JsKf3f5HNpfRKn9LMPRr6FsKLfs8PxGsLq0rk3l25CREtCl-qo7Fu4Q-ahcrr1t_tuIr9APguqFC5yKjgNACA5a5T5KmdXcEyvZLpAmjdF-yDm2_jVBcVpiYqJCR6fJLuyaBtmV65Gioy5EpE"/>
+<div class="absolute -bottom-0.5 -right-0.5 size-4 bg-primary rounded-full flex items-center justify-center border border-background-dark shadow-lg">
+<span class="material-symbols-outlined text-[10px] text-white font-bold">edit</span>
+</div>
+</a>
+<div>
+<p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Welcome back</p>
+<h1 class="text-xl font-bold tracking-tight">Good Morning,<br/>Pratyay</h1>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="p-2 rounded-xl glass-card text-slate-300 hover:text-white transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="p-2 rounded-xl glass-card text-slate-300 hover:text-white transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</header>
+<main class="flex-1 px-4 overflow-y-auto pb-32">
+<!-- Daily Stats Section -->
+<section class="mt-6">
+<h2 class="text-sm font-bold mb-4 uppercase tracking-widest text-slate-400">Daily Stats</h2>
+<div class="grid grid-cols-2 gap-4">
+<div class="glass-card p-5 rounded-2xl">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary text-xl">water_drop</span>
+<p class="text-xs font-medium text-slate-400">Hydration</p>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-2xl font-bold">3/8 <span class="text-xs font-normal text-slate-500">glasses</span></p>
+<div class="w-full bg-white/5 h-1 rounded-full mt-2">
+<div class="bg-primary h-1 rounded-full shadow-[0_0_8px_rgba(19,91,236,0.5)]" style="width: 37.5%"></div>
+</div>
+</div>
+</div>
+<div class="glass-card p-5 rounded-2xl">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary text-xl">bedtime</span>
+<p class="text-xs font-medium text-slate-400">Sleep</p>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-2xl font-bold">7h <span class="text-xs font-normal text-slate-500">rested</span></p>
+<div class="w-full bg-white/5 h-1 rounded-full mt-2">
+<div class="bg-primary h-1 rounded-full shadow-[0_0_8px_rgba(19,91,236,0.5)]" style="width: 85%"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Focus Timer Card -->
+<section class="mt-8">
+<div class="relative overflow-hidden bg-primary p-6 rounded-2xl text-white flex justify-between items-center shadow-xl shadow-primary/20">
+<div class="absolute -right-4 -top-8 w-24 h-24 bg-white/10 rounded-full blur-2xl"></div>
+<div class="relative z-10">
+<h3 class="text-lg font-bold">Ready for Focus?</h3>
+<p class="text-white/70 text-sm">Start your next 25m session</p>
+</div>
+<button class="relative z-10 bg-white text-primary px-4 py-2.5 rounded-xl font-bold text-sm flex items-center gap-2 hover:bg-slate-50 transition-colors shadow-lg active:scale-95">
+<span class="material-symbols-outlined text-[20px] fill-1">play_arrow</span>
+                    Start
+                </button>
+</div>
+</section>
+<!-- Today's Tasks Section -->
+<section class="mt-8">
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-sm font-bold uppercase tracking-widest text-slate-400">Today's Tasks</h2>
+<button class="text-primary text-xs font-bold uppercase tracking-wider">View All</button>
+</div>
+<div class="flex flex-col gap-3">
+<!-- Task 1 -->
+<div class="flex items-center gap-4 p-4 glass-card rounded-2xl group hover:bg-white/5 transition-colors">
+<div class="flex-shrink-0">
+<input class="size-5 rounded-lg border-white/10 text-primary focus:ring-primary focus:ring-offset-0 bg-transparent" type="checkbox"/>
+</div>
+<div class="flex-1">
+<p class="font-semibold text-slate-100">Math – Integration Practice</p>
+<p class="text-[11px] text-slate-500">Calculus • 45 mins</p>
+</div>
+<div class="bg-blue-500/10 text-blue-400 text-[9px] font-black uppercase px-2 py-1 rounded-md tracking-tighter">Study</div>
+</div>
+<!-- Task 2 -->
+<div class="flex items-center gap-4 p-4 glass-card rounded-2xl group hover:bg-white/5 transition-colors">
+<div class="flex-shrink-0">
+<input class="size-5 rounded-lg border-white/10 text-primary focus:ring-primary focus:ring-offset-0 bg-transparent" type="checkbox"/>
+</div>
+<div class="flex-1">
+<p class="font-semibold text-slate-100">Programming – Learn Arrays</p>
+<p class="text-[11px] text-slate-500">Computer Science • 1h 20m</p>
+</div>
+<div class="bg-purple-500/10 text-purple-400 text-[9px] font-black uppercase px-2 py-1 rounded-md tracking-tighter">Coding</div>
+</div>
+<!-- Task 3 -->
+<div class="flex items-center gap-4 p-4 glass-card rounded-2xl group hover:bg-white/5 transition-colors">
+<div class="flex-shrink-0">
+<input class="size-5 rounded-lg border-white/10 text-primary focus:ring-primary focus:ring-offset-0 bg-transparent" type="checkbox"/>
+</div>
+<div class="flex-1">
+<p class="font-semibold text-slate-100">Physics – Revise Chapter 2</p>
+<p class="text-[11px] text-slate-500">Mechanics • 30 mins</p>
+</div>
+<div class="bg-orange-500/10 text-orange-400 text-[9px] font-black uppercase px-2 py-1 rounded-md tracking-tighter">Review</div>
+</div>
+<!-- Add Task Button -->
+<button class="mt-2 flex items-center justify-center gap-2 p-4 border border-dashed border-white/10 rounded-2xl text-slate-500 hover:text-slate-300 hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined text-xl">add_circle</span>
+<span class="font-bold text-xs uppercase tracking-widest">Add New Task</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 glass-nav border-t border-white/5 px-6 pb-8 pt-4 flex justify-between items-center z-20">
+<a class="flex flex-col items-center gap-1.5 text-primary group" href="#">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1">dashboard</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Dashboard</span>
+<div class="w-1 h-1 rounded-full bg-primary mt-0.5"></div>
+</a>
+<a class="flex flex-col items-center gap-1.5 text-slate-500 hover:text-slate-300 transition-colors group" href="#">
+<span class="material-symbols-outlined text-2xl">layers</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Stacks</span>
+</a>
+<a class="flex flex-col items-center gap-1.5 text-slate-500 hover:text-slate-300 transition-colors group" href="#">
+<span class="material-symbols-outlined text-2xl">calendar_month</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Calendar</span>
+</a>
+<a class="flex flex-col items-center gap-1.5 text-slate-500 hover:text-slate-300 transition-colors group" href="#">
+<span class="material-symbols-outlined text-2xl">menu_book</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Diary</span>
+</a>
+</nav>
+</body></html>

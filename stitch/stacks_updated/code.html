@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Study Planner - Stacks</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#0a0f18",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+            background-image: radial-gradient(circle at 0% 0%, rgba(19, 91, 236, 0.15) 0%, transparent 40%),
+                              radial-gradient(circle at 100% 100%, rgba(19, 91, 236, 0.1) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+        .glass {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-background-dark font-display text-slate-100 min-h-screen flex flex-col selection:bg-primary/30">
+<!-- Top Navigation / Header -->
+<header class="flex items-center justify-between px-6 py-4 border-b border-white/5 glass sticky top-0 z-20">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-2xl drop-shadow-[0_0_8px_rgba(19,91,236,0.5)]">layers</span>
+<h1 class="text-xl font-bold tracking-tight">Stacks</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 hover:bg-white/5 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-slate-400">search</span>
+</button>
+<button class="p-2 hover:bg-white/5 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-slate-400">settings</span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 overflow-x-auto relative">
+<div class="p-6 flex gap-6 min-w-max h-[calc(100vh-140px)]">
+<!-- Math Stack -->
+<section class="w-80 flex flex-col glass rounded-xl overflow-hidden">
+<div class="p-4 flex items-center justify-between border-b border-white/5 bg-white/5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">functions</span>
+<h2 class="font-semibold text-slate-300 uppercase tracking-wider text-xs">Math</h2>
+</div>
+<span class="text-xs font-medium px-2 py-0.5 bg-white/10 rounded text-slate-400">2</span>
+</div>
+<div class="p-3 flex flex-col gap-3 overflow-y-auto">
+<div class="p-4 glass-card rounded-lg hover:border-white/10 transition-colors cursor-pointer group">
+<p class="text-sm font-medium">Linear Algebra Refresher</p>
+<p class="text-xs text-slate-500 mt-1">Matrices and Vectors</p>
+</div>
+<div class="p-4 glass-card rounded-lg hover:border-white/10 transition-colors cursor-pointer group">
+<p class="text-sm font-medium">Calculus III</p>
+<p class="text-xs text-slate-500 mt-1">Partial derivatives review</p>
+</div>
+<button class="flex items-center justify-center gap-2 p-3 border-2 border-dashed border-white/5 rounded-lg text-slate-500 hover:text-primary hover:border-primary/50 hover:bg-primary/5 transition-all group">
+<span class="material-symbols-outlined text-sm">add</span>
+<span class="text-xs font-medium">Add Topic</span>
+</button>
+</div>
+</section>
+<!-- Programming Stack (Active/Focused) -->
+<section class="w-80 flex flex-col glass rounded-xl border-primary/30 ring-4 ring-primary/5">
+<div class="p-4 flex items-center justify-between border-b border-white/5 bg-primary/10">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">code</span>
+<h2 class="font-semibold text-primary uppercase tracking-wider text-xs">Programming</h2>
+</div>
+<span class="text-xs font-medium px-2 py-0.5 bg-primary/20 text-primary rounded">3</span>
+</div>
+<div class="p-3 flex flex-col gap-3 overflow-y-auto">
+<div class="p-4 glass-card rounded-lg border-primary/20 hover:border-primary/40 transition-colors cursor-pointer relative overflow-hidden group">
+<div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="relative z-10">
+<div class="flex justify-between items-start">
+<p class="text-sm font-medium">Learn Arrays</p>
+<span class="material-symbols-outlined text-slate-500 text-sm">more_vert</span>
+</div>
+<p class="text-xs text-slate-500 mt-1">Fundamentals of data structures</p>
+<div class="mt-3 w-full bg-white/5 h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[65%] shadow-[0_0_8px_rgba(19,91,236,0.6)]"></div>
+</div>
+</div>
+</div>
+<div class="p-4 glass-card rounded-lg border-white/5 hover:border-white/10 transition-colors cursor-pointer">
+<div class="flex justify-between items-start">
+<p class="text-sm font-medium">Learn OOP</p>
+<span class="material-symbols-outlined text-slate-500 text-sm">more_vert</span>
+</div>
+<p class="text-xs text-slate-500 mt-1">Classes, Inheritance, Polymorphism</p>
+</div>
+<div class="p-4 glass-card rounded-lg border-white/5 hover:border-white/10 transition-colors cursor-pointer">
+<div class="flex justify-between items-start">
+<p class="text-sm font-medium">Solve 3 Problems</p>
+<span class="material-symbols-outlined text-slate-500 text-sm">more_vert</span>
+</div>
+<p class="text-xs text-slate-500 mt-1">LeetCode: Two Sum, Valid Anagram...</p>
+<div class="mt-2 flex gap-1">
+<span class="px-2 py-0.5 rounded-full bg-orange-500/10 text-[10px] text-orange-400 font-bold border border-orange-500/20 uppercase tracking-tighter">High Priority</span>
+</div>
+</div>
+<button class="flex items-center justify-center gap-2 p-3 border-2 border-dashed border-primary/20 rounded-lg text-primary/60 hover:text-primary hover:border-primary hover:bg-primary/10 transition-all group">
+<span class="material-symbols-outlined text-sm">add</span>
+<span class="text-xs font-medium">Add Topic</span>
+</button>
+</div>
+</section>
+<!-- Physics Stack -->
+<section class="w-80 flex flex-col glass rounded-xl">
+<div class="p-4 flex items-center justify-between border-b border-white/5 bg-white/5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">bolt</span>
+<h2 class="font-semibold text-slate-300 uppercase tracking-wider text-xs">Physics</h2>
+</div>
+<span class="text-xs font-medium px-2 py-0.5 bg-white/10 rounded text-slate-400">1</span>
+</div>
+<div class="p-3 flex flex-col gap-3 overflow-y-auto">
+<div class="p-4 glass-card rounded-lg border-white/5 hover:border-white/10 transition-colors cursor-pointer">
+<p class="text-sm font-medium">Thermodynamics</p>
+<p class="text-xs text-slate-500 mt-1">Laws of energy transfer</p>
+</div>
+<button class="flex items-center justify-center gap-2 p-3 border-2 border-dashed border-white/5 rounded-lg text-slate-500 hover:text-primary hover:border-primary/50 hover:bg-primary/5 transition-all group">
+<span class="material-symbols-outlined text-sm">add</span>
+<span class="text-xs font-medium">Add Topic</span>
+</button>
+</div>
+</section>
+<!-- Add New Stack -->
+<button class="w-80 min-h-[100px] border-2 border-dashed border-white/10 rounded-xl flex items-center justify-center gap-3 text-slate-500 hover:border-primary hover:text-primary hover:bg-primary/5 transition-all">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="font-semibold">New Stack</span>
+</button>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="glass border-t border-white/5 px-6 py-2 flex items-center justify-around sticky bottom-0 z-20">
+<a class="flex flex-col items-center gap-1 text-slate-400 py-1 transition-colors hover:text-primary" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="text-[10px] font-medium uppercase tracking-widest">Dashboard</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary py-1 relative" href="#">
+<span class="material-symbols-outlined">layers</span>
+<span class="text-[10px] font-medium uppercase tracking-widest">Stacks</span>
+<span class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-primary rounded-t-full shadow-[0_-2px_8px_rgba(19,91,236,0.6)]"></span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 py-1 transition-colors hover:text-primary" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="text-[10px] font-medium uppercase tracking-widest">Calendar</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 py-1 transition-colors hover:text-primary" href="#">
+<span class="material-symbols-outlined">book</span>
+<span class="text-[10px] font-medium uppercase tracking-widest">Diary</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#0a0f18",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<title>Profile Setup - Study Planner</title>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+            background: #0a0f18;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .bg-blob {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.15;
+            animation: move 20s infinite alternate;
+        }
+        @keyframes move {
+            from { transform: translate(-10%, -10%); }
+            to { transform: translate(20%, 20%); }
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased text-slate-900 dark:text-slate-100 relative">
+<!-- Animated background blobs for "live" feel -->
+<div class="bg-blob bg-primary top-0 left-0"></div>
+<div class="bg-blob bg-blue-400 bottom-0 right-0" style="animation-delay: -5s;"></div>
+<div class="relative flex h-auto min-h-screen w-full flex-col max-w-md mx-auto overflow-x-hidden border-x border-slate-200 dark:border-slate-800/50 shadow-2xl bg-white/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="flex items-center p-4 pb-2 justify-between">
+<div class="text-primary flex size-12 shrink-0 items-center justify-center cursor-pointer">
+<span class="material-symbols-outlined">arrow_back</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">Set Up Profile</h2>
+</div>
+<div class="flex flex-col gap-3 p-6">
+<div class="flex gap-6 justify-between items-center">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal">Step 1 of 3</p>
+<p class="text-primary text-sm font-bold leading-normal">33%</p>
+</div>
+<div class="rounded-full bg-slate-200 dark:bg-slate-800/50 h-2 overflow-hidden">
+<div class="h-full rounded-full bg-primary" style="width: 33%;"></div>
+</div>
+</div>
+<div class="px-6 pt-4 pb-2 text-center">
+<h1 class="text-slate-900 dark:text-slate-100 tracking-tight text-3xl font-extrabold leading-tight">Welcome, Scholar!</h1>
+<p class="text-slate-500 dark:text-slate-400 mt-2 text-sm">Let's customize your learning experience.</p>
+</div>
+<div class="px-6 py-6 space-y-8">
+<section>
+<h4 class="text-slate-900 dark:text-slate-100 text-xs font-bold uppercase tracking-wider mb-4 opacity-70">Personal Details</h4>
+<div class="space-y-4">
+<div class="flex flex-col gap-1.5">
+<label class="text-sm font-semibold px-1">Full Name</label>
+<input class="w-full bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-lg p-3 text-sm focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-slate-400 dark:placeholder:text-slate-600" placeholder="Enter your name" type="text"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-sm font-semibold px-1">Age</label>
+<input class="w-full bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-lg p-3 text-sm focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-slate-400 dark:placeholder:text-slate-600" placeholder="How old are you?" type="number"/>
+</div>
+</div>
+</section>
+<section>
+<h4 class="text-slate-900 dark:text-slate-100 text-xs font-bold uppercase tracking-wider mb-4 opacity-70">Gender</h4>
+<div class="grid grid-cols-2 gap-3">
+<button class="flex items-center justify-center gap-2 p-3 rounded-lg border-2 border-primary bg-primary/10 text-primary font-semibold text-sm">
+<span class="material-symbols-outlined text-lg">male</span> Male
+                    </button>
+<button class="flex items-center justify-center gap-2 p-3 rounded-lg border border-slate-200 dark:border-white/10 bg-white/50 dark:bg-white/5 hover:border-primary/50 text-slate-600 dark:text-slate-400 font-medium text-sm transition-all">
+<span class="material-symbols-outlined text-lg">female</span> Female
+                    </button>
+<button class="flex items-center justify-center gap-2 p-3 rounded-lg border border-slate-200 dark:border-white/10 bg-white/50 dark:bg-white/5 hover:border-primary/50 text-slate-600 dark:text-slate-400 font-medium text-sm transition-all">
+<span class="material-symbols-outlined text-lg">diversity_3</span> Other
+                    </button>
+<button class="flex items-center justify-center gap-2 p-3 rounded-lg border border-slate-200 dark:border-white/10 bg-white/50 dark:bg-white/5 hover:border-primary/50 text-slate-600 dark:text-slate-400 font-medium text-sm transition-all">
+<span class="material-symbols-outlined text-lg">block</span> Skip
+                    </button>
+</div>
+</section>
+<section>
+<div class="flex justify-between items-center mb-4">
+<h4 class="text-slate-900 dark:text-slate-100 text-xs font-bold uppercase tracking-wider opacity-70">Choose Avatar</h4>
+<button class="text-primary text-xs font-bold">Upload Custom</button>
+</div>
+<div class="flex w-full overflow-x-auto pb-4 hide-scrollbar">
+<div class="flex flex-row items-start justify-start gap-4">
+<div class="flex shrink-0 flex-col items-center gap-2 w-20 group">
+<div class="w-20 h-20 bg-slate-200 dark:bg-slate-800/50 rounded-full border-4 border-primary ring-4 ring-primary/20 overflow-hidden" data-alt="Modern illustrated avatar of a scholar wearing glasses" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBA6BQm5tGcsy_A-7DSAfIxHqwxjQ-OLCxF2aKTuFNvxLbDo22GdJTkjhSHYkX6N8DXMz20j5Ny-RYwK1Y9doGk0sXbtQXlZPo4zZh_I9C3w-FhF7aqGVyxiziJ7JKTHASsP2yAL4xSmBZVqlty8Bi2592Uuyn7qr9Z_PJQLLF1fJiAGYQebpJrREnmGgv3zh6Ayfy2zx2CvVAbKa9IbgTo-1JIvY7L0UMpT2Wtx2FOotdz9Bdg7dd0X-2v-ChxoJ1-sLFV4EU6p88'); background-size: cover;"></div>
+<p class="text-primary text-xs font-bold">Scholar</p>
+</div>
+<div class="flex shrink-0 flex-col items-center gap-2 w-20 group">
+<div class="w-20 h-20 bg-slate-200 dark:bg-slate-800/50 rounded-full border-4 border-transparent hover:border-slate-300 dark:hover:border-white/30 overflow-hidden transition-all" data-alt="Digital illustration of a creative programmer avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDBN5nECcuIsarTj8r6tggHDrdioBkSHsqRtDDXFG3ERFRumZkMqAX3kSGMm4Ed3rxl6UTydu7AOW5QXBXExagY26ZziNZ0OfUNmZAdLvN2LbN19IngpsDIKcpzyLax8gYSsgjnslQRRv7wXgrAWaF9A56cRzlmjt-2f6cuDmHumLbd4mBfBq0-cJDN_W31SyOKZ6BfXj1pcgGz_crOF0PMj92l9LavRm5IvmLloeD0Y36rF_LxWbQhAFsp2NnLEtyZEVNRqolyCkA'); background-size: cover;"></div>
+<p class="text-slate-500 text-xs font-medium">Coder</p>
+</div>
+<div class="flex shrink-0 flex-col items-center gap-2 w-20 group">
+<div class="w-20 h-20 bg-slate-200 dark:bg-slate-800/50 rounded-full border-4 border-transparent hover:border-slate-300 dark:hover:border-white/30 overflow-hidden transition-all" data-alt="Colorful illustrated avatar of an artist holding a brush" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDe8JBzoo8A1ae2FgaLRB-ZCvAbK-3ynR-DyQRcOg03MCtun3CQdDcgIgC_qmk_xBB7ELPbeNM67bfUcyN_mMSPPyCT9TygjwnkvCqVuIT1zKBi95sP_QQuBw9GWAMOEIG1Sd30tceZcWAprth_RMk8QJNUb11eiFe0XaVWh7hCBTnsgpj9blheC6OXbdBzc-yK1_m8TkvzTLh-qFbv6McjSbhFDBuEzPQh5sNdsLlEPvasStJqmo9XlEigQKms5L1XPIQG7gMGB1k'); background-size: cover;"></div>
+<p class="text-slate-500 text-xs font-medium">Artist</p>
+</div>
+<div class="flex shrink-0 flex-col items-center gap-2 w-20 group">
+<div class="w-20 h-20 bg-slate-200 dark:bg-slate-800/50 rounded-full border-4 border-transparent hover:border-slate-300 dark:hover:border-white/30 overflow-hidden transition-all" data-alt="Vibrant stylized avatar of a professional gamer" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBKQJIwc5n8Nxe2VALIfmAW5VFvtqO5-Ei-daRSpAJ9njCfCBKUgUlEva96ivwGrwmFwitMF7cZyyoQ4wticAHkx-_8eWOXAyDLEteVyN9uHX8OPHSSAMGrMgGMO2-Vtngo_Foz0Oe3QdZYHrETv1JZSUY1HlDq1UeQf321p4wNPPJdWzih6jbv3umFWqWmmRplRsmkALPT7gST9HPqzgIbyRyI15H0mV6N5gPuEciAuTdTaLc-q_2k3h2wPSrbbZ_pWlsmTyPij9o'); background-size: cover;"></div>
+<p class="text-slate-500 text-xs font-medium">Gamer</p>
+</div>
+<div class="flex shrink-0 flex-col items-center gap-2 w-20 group">
+<div class="w-20 h-20 bg-slate-200 dark:bg-slate-800/50 rounded-full border-4 border-transparent hover:border-slate-300 dark:hover:border-white/30 overflow-hidden transition-all" data-alt="Clean minimalist illustrated avatar with bookish aesthetic" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBfuMS8ME_2RA2BHXaoYRxa79UHWUBvgrioB9YV5RWvjMQsup5VJmV-aHYF89bg4eBsih1P54XJF6P2id_hMURJNGG7sM_WQjrkZiNgzYsNQUKwHa3voVCLZfaYlV8Zp2iSAACSkmEZ_lRYWFoV2hE6g7CYCdPJgpOimAD3zOJ6niEwMlP93Uuyy9h2nSX_j0kjEYTHnUwZ32vjL46YmTGpFPLBMVGaeR80WXKeTb5tWW7b9JPDieMgs-f9Mnq8EkwiiMT8HcQGhKo'); background-size: cover;"></div>
+<p class="text-slate-500 text-xs font-medium">Geek</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+<div class="mt-auto p-6 bg-white/90 dark:bg-slate-900/40 backdrop-blur-xl border-t border-slate-200 dark:border-white/10 sticky bottom-0">
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/40 transition-all flex items-center justify-center gap-2 active:scale-[0.98]">
+                Create Profile <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<p class="text-center text-xs text-slate-500 dark:text-slate-400 mt-4">
+                By continuing, you agree to our <a class="text-primary font-semibold" href="#">Terms of Service</a>
+</p>
+</div>
+</div>
+</body></html>
