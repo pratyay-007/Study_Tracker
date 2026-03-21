@@ -1,0 +1,24 @@
+name: study_tracker_app
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0+1
+
+environment:
+  sdk: ^3.11.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+  intl: ^0.20.2
+  provider: ^6.1.5+1
+  shared_preferences: ^2.5.4
+  table_calendar: ^3.2.0
+  uuid: ^4.5.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
