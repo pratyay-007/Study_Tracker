@@ -47,6 +47,6 @@ The app helps students organize study tasks, track progress, and maintain consis
 - **Stitch**
 - **Antigravity**
 - **Claude AI**
-- 
+  
 ## Installation
-- install the apk file on your hpone and you are good to go
+- install the apk file on your phone and you are good to go
